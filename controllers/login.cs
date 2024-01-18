@@ -17,7 +17,7 @@ public class LoginUser
                 command.Parameters.AddWithValue("@Password", password);
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
-
+                
                 return count > 0;
             }
         }

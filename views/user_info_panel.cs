@@ -1,4 +1,5 @@
-﻿using System;
+﻿using fitness_pro_software.controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,17 +40,17 @@ namespace fitness_pro_software
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            name_input_field = new TextBox();
+            age_input_field = new TextBox();
+            weight_input_field = new TextBox();
+            height_input_field = new TextBox();
             button1 = new Button();
-            textBox5 = new TextBox();
+            goal_input_field = new TextBox();
             label6 = new Label();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            textBox6 = new TextBox();
+            result_input_field = new TextBox();
             label7 = new Label();
             update_info_btn = new Button();
             panel1 = new Panel();
@@ -119,33 +120,33 @@ namespace fitness_pro_software
             label5.TabIndex = 5;
             label5.Text = "HEIGHT   ";
             // 
-            // textBox1
+            // name_input_field
             // 
-            textBox1.Location = new Point(148, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(214, 30);
-            textBox1.TabIndex = 6;
+            name_input_field.Location = new Point(148, 43);
+            name_input_field.Name = "name_input_field";
+            name_input_field.Size = new Size(214, 30);
+            name_input_field.TabIndex = 6;
             // 
-            // textBox2
+            // age_input_field
             // 
-            textBox2.Location = new Point(148, 96);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(214, 30);
-            textBox2.TabIndex = 7;
+            age_input_field.Location = new Point(148, 96);
+            age_input_field.Name = "age_input_field";
+            age_input_field.Size = new Size(214, 30);
+            age_input_field.TabIndex = 7;
             // 
-            // textBox3
+            // weight_input_field
             // 
-            textBox3.Location = new Point(148, 153);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(214, 30);
-            textBox3.TabIndex = 8;
+            weight_input_field.Location = new Point(148, 153);
+            weight_input_field.Name = "weight_input_field";
+            weight_input_field.Size = new Size(214, 30);
+            weight_input_field.TabIndex = 8;
             // 
-            // textBox4
+            // height_input_field
             // 
-            textBox4.Location = new Point(148, 210);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(214, 30);
-            textBox4.TabIndex = 9;
+            height_input_field.Location = new Point(148, 210);
+            height_input_field.Name = "height_input_field";
+            height_input_field.Size = new Size(214, 30);
+            height_input_field.TabIndex = 9;
             // 
             // button1
             // 
@@ -158,12 +159,12 @@ namespace fitness_pro_software
             button1.Text = "SUBMIT";
             button1.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // goal_input_field
             // 
-            textBox5.Location = new Point(146, 73);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(112, 30);
-            textBox5.TabIndex = 12;
+            goal_input_field.Location = new Point(146, 73);
+            goal_input_field.Name = "goal_input_field";
+            goal_input_field.Size = new Size(112, 30);
+            goal_input_field.TabIndex = 12;
             // 
             // label6
             // 
@@ -209,12 +210,12 @@ namespace fitness_pro_software
             button4.Text = "CLEAR";
             button4.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // result_input_field
             // 
-            textBox6.Location = new Point(146, 215);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(112, 30);
-            textBox6.TabIndex = 17;
+            result_input_field.Location = new Point(146, 215);
+            result_input_field.Name = "result_input_field";
+            result_input_field.Size = new Size(112, 30);
+            result_input_field.TabIndex = 17;
             // 
             // label7
             // 
@@ -247,10 +248,10 @@ namespace fitness_pro_software
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(name_input_field);
+            panel1.Controls.Add(age_input_field);
+            panel1.Controls.Add(weight_input_field);
+            panel1.Controls.Add(height_input_field);
             panel1.Controls.Add(button1);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(76, 126);
@@ -262,9 +263,9 @@ namespace fitness_pro_software
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(goal_input_field);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(textBox6);
+            panel2.Controls.Add(result_input_field);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(button3);
@@ -284,6 +285,7 @@ namespace fitness_pro_software
             Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "user_info_panel";
             Size = new Size(1026, 579);
+            Load += user_info_panel_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -297,20 +299,38 @@ namespace fitness_pro_software
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox name_input_field;
+        private TextBox age_input_field;
+        private TextBox weight_input_field;
+        private TextBox height_input_field;
         private Button button1;
-        private TextBox textBox5;
+        private TextBox goal_input_field;
         private Label label6;
         private Button button2;
         private Button button3;
         private Button button4;
-        private TextBox textBox6;
+        private TextBox result_input_field;
         private Button update_info_btn;
         private Panel panel1;
         private Panel panel2;
         private Label label7;
+
+        private void user_info_panel_Load(object sender, EventArgs e)
+        {
+            string output = ControllerDatabase.get_user_name_from_db(1);
+            int age = ControllerDatabase.get_age_from_db(1);
+            int goal = ControllerDatabase.get_goal_from_db(1);
+            int result = ControllerDatabase.get_calorie_burned_from_db(1);
+            double weight = ControllerDatabase.get_weight_from_db(1);
+            double height = ControllerDatabase.get_height_from_db(1) * 1000;
+
+            name_input_field.PlaceholderText = output;
+            age_input_field.PlaceholderText = Convert.ToString(age);
+            weight_input_field.PlaceholderText= Convert.ToString(weight)+" kg";
+            goal_input_field.PlaceholderText = Convert.ToString(goal)+" kcal";
+            result_input_field.PlaceholderText = Convert.ToString(result)+" kcal";
+            height_input_field.PlaceholderText = Convert.ToString(height) + " cm";
+
+        }
     }
 }

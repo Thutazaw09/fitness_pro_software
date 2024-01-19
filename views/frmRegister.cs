@@ -33,21 +33,19 @@ namespace fitness_pro_software
 
         private void exit_btn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void to_login_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmLogin login = new frmLogin();
             login.Show();
-
-           Visible = false;
-
         }
 
         private void show_password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
-            if(show_password_checkbox.Checked)
+            if (show_password_checkbox.Checked)
             {
                 password_txt.UseSystemPasswordChar = false;
                 confirm_password_txt.UseSystemPasswordChar = false;
@@ -57,6 +55,21 @@ namespace fitness_pro_software
                 password_txt.UseSystemPasswordChar = true;
                 confirm_password_txt.UseSystemPasswordChar = true;
             }
+        }
+
+        private void register_btn_Click(object sender, EventArgs e)
+        {
+            string username = user_name_txt.Text;
+            string password = password_txt.Text;
+
+            LoginUser.RegisterUser(username, password);
+
+            MessageBox.Show("User registered successfully.");
+
+            user_name_txt.Clear();
+            password_txt.Clear();
+            confirm_password_txt.Clear();
+
         }
     }
 }

@@ -22,7 +22,7 @@ namespace fitness_pro_software
         }
         private void exit_btn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void to_register_Click(object sender, EventArgs e)

@@ -66,11 +66,13 @@ namespace fitness_pro_software
         private void logout_pnl_Click(object sender, EventArgs e)
         {
             frmLogin logout = new frmLogin();
-            MessageBox.Show("You are logging out");
-            logout.Show();
-            Visible = false;
+            DialogResult result = MessageBox.Show("You are logging out","Confirmation",MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Hide();
+                logout.Show();
+            }
             
-           
         }
     }
 }

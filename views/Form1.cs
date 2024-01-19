@@ -25,7 +25,7 @@ namespace fitness_pro_software
             int result = (ControllerDatabase.get_calorie_burned_from_db(1));
             double weight = (ControllerDatabase.get_weight_from_db(1));
 
-            MessageBox.Show($"Name is {output}\nAge is {age}\nGoal is {goal}\result is {result}\nweight is {weight}\n");
+            //MessageBox.Show($"Name is {output}\nAge is {age}\nGoal is {goal}\result is {result}\nweight is {weight}\n");
 
             
 

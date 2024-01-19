@@ -13,11 +13,16 @@ namespace fitness_pro_software
 {
     public partial class user_info_panel : UserControl
     {
+        private int userID;
         public user_info_panel()
         {
             InitializeComponent();
         }
-
+        public void SetUserID(int userID)
+        {
+            this.userID = userID;
+            UpdateUserInformation();
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -315,22 +320,25 @@ namespace fitness_pro_software
         private Panel panel2;
         private Label label7;
 
-        private void user_info_panel_Load(object sender, EventArgs e)
+        private void UpdateUserInformation()
         {
-            string output = ControllerDatabase.get_user_name_from_db(1);
-            int age = ControllerDatabase.get_age_from_db(1);
-            int goal = ControllerDatabase.get_goal_from_db(1);
-            int result = ControllerDatabase.get_calorie_burned_from_db(1);
-            double weight = ControllerDatabase.get_weight_from_db(1);
-            double height = ControllerDatabase.get_height_from_db(1) * 1000;
+            string output = ControllerDatabase.get_user_name_from_db(this.userID);
+            int age = ControllerDatabase.get_age_from_db(this.userID);
+            int goal = ControllerDatabase.get_goal_from_db(this.userID);
+            int result = ControllerDatabase.get_calorie_burned_from_db(this.userID);
+            double weight = ControllerDatabase.get_weight_from_db(this.userID);
+            double height = ControllerDatabase.get_height_from_db(this.userID) * 1000;
 
             name_input_field.PlaceholderText = output;
             age_input_field.PlaceholderText = Convert.ToString(age);
-            weight_input_field.PlaceholderText= Convert.ToString(weight)+" kg";
-            goal_input_field.PlaceholderText = Convert.ToString(goal)+" kcal";
-            result_input_field.PlaceholderText = Convert.ToString(result)+" kcal";
+            weight_input_field.PlaceholderText = Convert.ToString(weight) + " kg";
+            goal_input_field.PlaceholderText = Convert.ToString(goal) + " kcal";
+            result_input_field.PlaceholderText = Convert.ToString(result) + " kcal";
             height_input_field.PlaceholderText = Convert.ToString(height) + " cm";
-
+        }
+        private void user_info_panel_Load(object sender, EventArgs e)
+        {
+        
         }
     }
 }

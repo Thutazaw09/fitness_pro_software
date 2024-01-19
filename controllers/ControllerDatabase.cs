@@ -30,7 +30,6 @@ namespace fitness_pro_software.controllers
                     {
                         if (reader.Read())
                         {
-                           
                             result = reader[columnName].ToString();
                         }
                     }

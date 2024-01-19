@@ -6,10 +6,11 @@ namespace fitness_pro_software
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private int userID;
+        public Form1(int userID)
         {
             InitializeComponent();
-
+            this.userID = userID;
         }
 
         // dashboard section //
@@ -17,13 +18,14 @@ namespace fitness_pro_software
         {
             user_info_panel1.Visible = true;
             activity_panel_big1.Visible = false;
+            int id = this.userID;
 
             // this is testing 
-            string output = ControllerDatabase.get_user_name_from_db(1);
-            int age = ControllerDatabase.get_age_from_db(1);
-            int goal = (ControllerDatabase.get_goal_from_db(1));
-            int result = (ControllerDatabase.get_calorie_burned_from_db(1));
-            double weight = (ControllerDatabase.get_weight_from_db(1));
+            string output = ControllerDatabase.get_user_name_from_db(id);
+            int age = ControllerDatabase.get_age_from_db(id);
+            int goal = (ControllerDatabase.get_goal_from_db(id));
+            int result = (ControllerDatabase.get_calorie_burned_from_db(id));
+            double weight = (ControllerDatabase.get_weight_from_db(id));
 
             //MessageBox.Show($"Name is {output}\nAge is {age}\nGoal is {goal}\result is {result}\nweight is {weight}\n");
 
@@ -31,10 +33,6 @@ namespace fitness_pro_software
 
             goal_output_lb.Text = Convert.ToString(goal);
             result_lb.Text= Convert.ToString(result);
-
-
-
-
 
         }
 

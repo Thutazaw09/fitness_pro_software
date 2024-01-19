@@ -51,10 +51,14 @@ namespace fitness_pro_software
             if (LoginUser.AuthenticateUser(username, password))
             {
                 // Redirect to the main fitness tracking interface
-                MessageBox.Show("Login successful!");
-                Form1 login = new Form1();
-                login.Show();
-                Visible=false;
+                int userID = LoginUser.GetUserID(username, password);
+                if (userID != -1)
+                {
+                    MessageBox.Show("Login successful!");
+                    Form1 login = new Form1(userID);
+                    login.Show();
+                    this.Hide();
+                }
             }
             else
             {

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,17 @@ namespace fitness_pro_software
         YogaModel yoga_model = new YogaModel(); 
         RunningModel running_model = new RunningModel();
         public string activity_name;
-
+        private int userID;
+        public void setuserID(int userID)
+        {
+            this.userID = userID;
+        }
         public InputForm(string activity_name)
         {
             this.activity_name = activity_name;
+            
             InitializeComponent();
+
 
             if (activity_name == (string)walking_model.ActivityName) 
             {
@@ -121,6 +128,20 @@ namespace fitness_pro_software
                 {
                     result = 0.0;
                 }
+
+                int previous_result = ControllerDatabase.get_calorie_burned_from_db(this.userID);
+                int updated_result = previous_result + Convert.ToInt32(result);
+                int goal = ControllerDatabase.get_goal_from_db(this.userID);
+
+                if (updated_result >= goal ) {
+                    ControllerDatabase.update_calorie_burned_in_db(this.userID, 0);
+                    MessageBox.Show("You hit the goal\nYour progress have been resest");
+                }
+                else
+                {
+                    ControllerDatabase.update_calorie_burned_in_db(this.userID, updated_result);
+                }
+               
 
                 MessageBox.Show($"You are doing {this.activity_name} and burn {result} calories"); // result will go to database
                 Close();

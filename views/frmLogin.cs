@@ -65,5 +65,10 @@ namespace fitness_pro_software
                 MessageBox.Show("Invalid username or password.");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

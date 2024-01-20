@@ -14,10 +14,15 @@ namespace fitness_pro_software
 {
     public partial class activity_panel_big : UserControl
     {
-      
+        private int userID;
         public activity_panel_big()
         {
             InitializeComponent();
+        }
+        public void SetUserID(int userID)
+        {
+            this.userID = userID;
+            
         }
 
         private void activity_panel_big_Load(object sender, EventArgs e)
@@ -32,6 +37,7 @@ namespace fitness_pro_software
             WalkingModel walking = new WalkingModel();
 
             InputForm inputform = new InputForm(walking.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
 
             
@@ -41,6 +47,7 @@ namespace fitness_pro_software
         {
             RunningModel running = new RunningModel();
             InputForm inputform = new InputForm(running.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
         }
 
@@ -48,6 +55,7 @@ namespace fitness_pro_software
         {
             YogaModel yoga = new YogaModel();
             InputForm inputform = new InputForm(yoga.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
         }
 
@@ -55,6 +63,7 @@ namespace fitness_pro_software
         {
             DancingModel dancing = new DancingModel();
             InputForm inputform = new InputForm(dancing.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
         }
 
@@ -62,6 +71,7 @@ namespace fitness_pro_software
         {
             CyclingModel cycling = new CyclingModel();
             InputForm inputform = new InputForm(cycling.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
         }
 
@@ -71,6 +81,7 @@ namespace fitness_pro_software
         {
             SwimmingModel swimming = new SwimmingModel();
             InputForm inputform = new InputForm(swimming.ActivityName);
+            inputform.setuserID(this.userID);
             inputform.Show();
         }
     }

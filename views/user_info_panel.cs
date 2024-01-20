@@ -49,17 +49,17 @@ namespace fitness_pro_software
             age_input_field = new TextBox();
             weight_input_field = new TextBox();
             height_input_field = new TextBox();
-            button1 = new Button();
             goal_input_field = new TextBox();
             label6 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            result_input_field = new TextBox();
+            clear_calories_burned_btn = new Button();
+            set_goal_btn = new Button();
+            clear_goal_btn = new Button();
             label7 = new Label();
             update_info_btn = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
+            label8 = new Label();
+            calories_burned_disp = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -153,17 +153,6 @@ namespace fitness_pro_software
             height_input_field.Size = new Size(214, 30);
             height_input_field.TabIndex = 9;
             // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(78, 260);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 10;
-            button1.Text = "SUBMIT";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // goal_input_field
             // 
             goal_input_field.Location = new Point(146, 73);
@@ -182,45 +171,41 @@ namespace fitness_pro_software
             label6.TabIndex = 11;
             label6.Text = "GOAL     ";
             // 
-            // button2
+            // clear_calories_burned_btn
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(146, 254);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 13;
-            button2.Text = "CLEAR";
-            button2.UseVisualStyleBackColor = false;
+            clear_calories_burned_btn.BackColor = SystemColors.ActiveCaption;
+            clear_calories_burned_btn.ForeColor = SystemColors.ActiveCaptionText;
+            clear_calories_burned_btn.Location = new Point(146, 254);
+            clear_calories_burned_btn.Name = "clear_calories_burned_btn";
+            clear_calories_burned_btn.Size = new Size(112, 34);
+            clear_calories_burned_btn.TabIndex = 13;
+            clear_calories_burned_btn.Text = "CLEAR";
+            clear_calories_burned_btn.UseVisualStyleBackColor = false;
+            clear_calories_burned_btn.Click += clear_calories_burned_btn_Click;
             // 
-            // button3
+            // set_goal_btn
             // 
-            button3.BackColor = SystemColors.ActiveCaption;
-            button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(92, 112);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 14;
-            button3.Text = "SET GOAL";
-            button3.UseVisualStyleBackColor = false;
+            set_goal_btn.BackColor = SystemColors.ActiveCaption;
+            set_goal_btn.ForeColor = SystemColors.ActiveCaptionText;
+            set_goal_btn.Location = new Point(92, 112);
+            set_goal_btn.Name = "set_goal_btn";
+            set_goal_btn.Size = new Size(112, 34);
+            set_goal_btn.TabIndex = 14;
+            set_goal_btn.Text = "SET GOAL";
+            set_goal_btn.UseVisualStyleBackColor = false;
+            set_goal_btn.Click += set_goal_btn_Click;
             // 
-            // button4
+            // clear_goal_btn
             // 
-            button4.BackColor = SystemColors.ActiveCaption;
-            button4.ForeColor = SystemColors.ActiveCaptionText;
-            button4.Location = new Point(210, 113);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 34);
-            button4.TabIndex = 15;
-            button4.Text = "CLEAR";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // result_input_field
-            // 
-            result_input_field.Location = new Point(146, 215);
-            result_input_field.Name = "result_input_field";
-            result_input_field.Size = new Size(112, 30);
-            result_input_field.TabIndex = 17;
+            clear_goal_btn.BackColor = SystemColors.ActiveCaption;
+            clear_goal_btn.ForeColor = SystemColors.ActiveCaptionText;
+            clear_goal_btn.Location = new Point(210, 113);
+            clear_goal_btn.Name = "clear_goal_btn";
+            clear_goal_btn.Size = new Size(112, 34);
+            clear_goal_btn.TabIndex = 15;
+            clear_goal_btn.Text = "CLEAR";
+            clear_goal_btn.UseVisualStyleBackColor = false;
+            clear_goal_btn.Click += clear_goal_btn_Click;
             // 
             // label7
             // 
@@ -237,12 +222,13 @@ namespace fitness_pro_software
             // 
             update_info_btn.BackColor = SystemColors.ActiveCaption;
             update_info_btn.ForeColor = SystemColors.ActiveCaptionText;
-            update_info_btn.Location = new Point(207, 260);
+            update_info_btn.Location = new Point(131, 254);
             update_info_btn.Name = "update_info_btn";
             update_info_btn.Size = new Size(112, 34);
             update_info_btn.TabIndex = 18;
             update_info_btn.Text = "UPDATE";
             update_info_btn.UseVisualStyleBackColor = false;
+            update_info_btn.Click += update_info_btn_Click;
             // 
             // panel1
             // 
@@ -257,7 +243,6 @@ namespace fitness_pro_software
             panel1.Controls.Add(age_input_field);
             panel1.Controls.Add(weight_input_field);
             panel1.Controls.Add(height_input_field);
-            panel1.Controls.Add(button1);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(76, 126);
             panel1.Name = "panel1";
@@ -268,18 +253,40 @@ namespace fitness_pro_software
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(calories_burned_disp);
             panel2.Controls.Add(goal_input_field);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(result_input_field);
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(clear_calories_burned_btn);
             panel2.Controls.Add(label7);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button4);
+            panel2.Controls.Add(set_goal_btn);
+            panel2.Controls.Add(clear_goal_btn);
             panel2.ForeColor = Color.Chocolate;
             panel2.Location = new Point(545, 126);
             panel2.Name = "panel2";
             panel2.Size = new Size(398, 327);
             panel2.TabIndex = 19;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(390, 314);
+            label8.Name = "label8";
+            label8.Size = new Size(60, 22);
+            label8.TabIndex = 18;
+            label8.Text = "label8";
+            // 
+            // calories_burned_disp
+            // 
+            calories_burned_disp.AutoSize = true;
+            calories_burned_disp.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            calories_burned_disp.ForeColor = Color.Red;
+            calories_burned_disp.Location = new Point(170, 213);
+            calories_burned_disp.Name = "calories_burned_disp";
+            calories_burned_disp.Size = new Size(70, 27);
+            calories_burned_disp.TabIndex = 17;
+            calories_burned_disp.Text = "label8";
+            calories_burned_disp.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // user_info_panel
             // 
@@ -308,37 +315,110 @@ namespace fitness_pro_software
         private TextBox age_input_field;
         private TextBox weight_input_field;
         private TextBox height_input_field;
-        private Button button1;
         private TextBox goal_input_field;
         private Label label6;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private TextBox result_input_field;
+        private Button clear_calories_burned_btn;
+        private Button set_goal_btn;
+        private Button clear_goal_btn;
         private Button update_info_btn;
         private Panel panel1;
         private Panel panel2;
+        private Label label8;
+        private Label calories_burned_disp;
         private Label label7;
 
         private void UpdateUserInformation()
         {
-            string output = ControllerDatabase.get_user_name_from_db(this.userID);
+            string name = ControllerDatabase.get_user_name_from_db(this.userID);
             int age = ControllerDatabase.get_age_from_db(this.userID);
             int goal = ControllerDatabase.get_goal_from_db(this.userID);
-            int result = ControllerDatabase.get_calorie_burned_from_db(this.userID);
+            int calories_burned = ControllerDatabase.get_calorie_burned_from_db(this.userID);
             double weight = ControllerDatabase.get_weight_from_db(this.userID);
             double height = ControllerDatabase.get_height_from_db(this.userID) * 1000;
 
-            name_input_field.PlaceholderText = output;
-            age_input_field.PlaceholderText = Convert.ToString(age);
-            weight_input_field.PlaceholderText = Convert.ToString(weight) + " kg";
-            goal_input_field.PlaceholderText = Convert.ToString(goal) + " kcal";
-            result_input_field.PlaceholderText = Convert.ToString(result) + " kcal";
-            height_input_field.PlaceholderText = Convert.ToString(height) + " cm";
+            name_input_field.Text = name;
+            age_input_field.Text = Convert.ToString(age);
+            weight_input_field.Text = Convert.ToString(weight);
+            goal_input_field.Text = Convert.ToString(goal);
+            calories_burned_disp.Text = Convert.ToString(calories_burned);
+            height_input_field.Text = Convert.ToString(height);
+
+
         }
         private void user_info_panel_Load(object sender, EventArgs e)
         {
-        
+           
         }
+
+        private void update_info_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string new_name = name_input_field.Text;
+                double new_weight = Convert.ToDouble(weight_input_field.Text);
+                double new_height = Convert.ToDouble(height_input_field.Text) / 1000;
+
+                int new_age = Convert.ToInt32(age_input_field.Text);
+                // result cannont be updated
+
+                ControllerDatabase.update_user_name_in_db(this.userID, new_name);
+                ControllerDatabase.update_age_in_db(this.userID, new_age);
+                ControllerDatabase.update_height_in_db(this.userID, new_height);
+                ControllerDatabase.update_weight_in_db(this.userID, new_weight);
+                MessageBox.Show("Update Successful");
+                UpdateUserInformation();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void clear_calories_burned_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ControllerDatabase.update_calorie_burned_in_db(this.userID, 0);
+                MessageBox.Show("Your Result has been reset");
+                UpdateUserInformation();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void clear_goal_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ControllerDatabase.update_goal_in_db(this.userID, 0);
+                MessageBox.Show("Goal has been reset");
+                UpdateUserInformation();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void set_goal_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            int new_goal = Convert.ToInt32(goal_input_field.Text);
+            ControllerDatabase.update_goal_in_db(this.userID, new_goal);
+            MessageBox.Show("Goal has been set");
+            UpdateUserInformation();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
     }
 }

@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            name_display = new Label();
             panel4 = new Panel();
             label3 = new Label();
             result_lb = new Label();
@@ -65,6 +66,7 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.GradientInactiveCaption;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(name_display);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(logout_pnl);
@@ -74,6 +76,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(213, 663);
             panel1.TabIndex = 1;
+            // 
+            // name_display
+            // 
+            name_display.AutoSize = true;
+            name_display.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            name_display.Location = new Point(58, 55);
+            name_display.Name = "name_display";
+            name_display.Size = new Size(83, 33);
+            name_display.TabIndex = 3;
+            name_display.Text = "label4";
+            name_display.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -236,6 +249,7 @@
             Text = "DashBoard";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -261,5 +275,6 @@
         private Label goal_output_lb;
         private Label result_lb;
         private user_info_panel user_info_panel1;
+        private Label name_display;
     }
 }

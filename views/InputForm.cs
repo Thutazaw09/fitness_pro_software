@@ -144,7 +144,12 @@ namespace fitness_pro_software
                
 
                 MessageBox.Show($"You are doing {this.activity_name} and burn {result} calories"); // result will go to database
+                CloseForm1();
+                
+                Form1 main = new Form1(userID);
+                main.Show();
                 Close();
+
             }
             catch (Exception ex)
             {
@@ -153,8 +158,19 @@ namespace fitness_pro_software
             }
             
         }
-         
-        private void InputForm_Load(object sender, EventArgs e)
+        private void CloseForm1()
+        {
+            // Iterate through open forms and close the BackgroundForm
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is Form1)
+                {
+                    form.Close();
+                    break; // Exit the loop once you find and close the BackgroundForm
+                }
+            }
+        }
+            private void InputForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -6,6 +6,7 @@ namespace fitness_pro_software
     {
         private int loginAttempts = 0;
         private const int maxLoginAttempts = 5;
+        private DateTime lockoutEndTime;
         public frmLogin()
         {
             InitializeComponent();
@@ -46,6 +47,11 @@ namespace fitness_pro_software
 
         private void login_btn_Click(object sender, EventArgs e)
         {
+            if (DateTime.Now < lockoutEndTime)
+            {
+                MessageBox.Show($"Login attempts exceeded. Please wait for the lockout period to end.");
+                return;
+            }
             string username = user_name_txt.Text;
             string password = password_txt.Text;
 
@@ -67,20 +73,37 @@ namespace fitness_pro_software
                 loginAttempts++;
                 if (loginAttempts >= maxLoginAttempts)
                 {
-                    MessageBox.Show($"Too many unsuccessful login attempts. App Will be closing .");
-                    Application.Exit(); 
+                    lockoutEndTime = DateTime.Now.AddMinutes(1);
+                    MessageBox.Show($"Too many unsuccessful login attempts. Your account is locked for 1 minute..");
+                    loginAttempts = 2;
+                    timer1.Start();
+
                 }
                 else
                 {
                     MessageBox.Show($"Invalid username or password. Attempts left: {maxLoginAttempts - loginAttempts}");
                 }
-                
+
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now >= lockoutEndTime)
+            {
+                timer1.Stop();
+                MessageBox.Show("Lockout period ended. You can attempt to login again.");
+            }
+            else
+            {
+                TimeSpan remainingTime = lockoutEndTime - DateTime.Now;
+                countdown.Text = $"Lockout: {remainingTime:mm\\:ss}";
+            }
         }
     }
 }

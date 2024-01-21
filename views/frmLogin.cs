@@ -4,7 +4,8 @@ namespace fitness_pro_software
 {
     public partial class frmLogin : Form
     {
-
+        private int loginAttempts = 0;
+        private const int maxLoginAttempts = 5;
         public frmLogin()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace fitness_pro_software
 
             if (LoginUser.AuthenticateUser(username, password))
             {
+                loginAttempts = 0;
                 // Redirect to the main fitness tracking interface
                 int userID = LoginUser.GetUserID(username, password);
                 if (userID != -1)
@@ -62,7 +64,17 @@ namespace fitness_pro_software
             }
             else
             {
-                MessageBox.Show("Invalid username or password.");
+                loginAttempts++;
+                if (loginAttempts >= maxLoginAttempts)
+                {
+                    MessageBox.Show($"Too many unsuccessful login attempts. App Will be closing .");
+                    Application.Exit(); 
+                }
+                else
+                {
+                    MessageBox.Show($"Invalid username or password. Attempts left: {maxLoginAttempts - loginAttempts}");
+                }
+                
             }
         }
 

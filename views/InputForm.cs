@@ -19,7 +19,7 @@ namespace fitness_pro_software
         DancingModel dancing_model = new DancingModel();
         SwimmingModel swimming_model = new SwimmingModel();
         CyclingModel cycling_model = new CyclingModel();
-        YogaModel yoga_model = new YogaModel(); 
+        YogaModel yoga_model = new YogaModel();
         RunningModel running_model = new RunningModel();
         public string activity_name;
         private int userID;
@@ -27,21 +27,22 @@ namespace fitness_pro_software
         {
             this.userID = userID;
         }
+
         public InputForm(string activity_name)
         {
             this.activity_name = activity_name;
-            
+
             InitializeComponent();
 
 
-            if (activity_name == (string)walking_model.ActivityName) 
+            if (activity_name == (string)walking_model.ActivityName)
             {
                 label1.Text = walking_model.Metric1Name;
                 label2.Text = walking_model.Metric2Name;
                 label3.Text = walking_model.Metric3Name;
                 label4.Text = walking_model.ActivityName;
             }
-            else if(activity_name == (string)dancing_model.ActivityName)
+            else if (activity_name == (string)dancing_model.ActivityName)
             {
                 label1.Text = dancing_model.Metric1Name;
                 label2.Text = dancing_model.Metric2Name;
@@ -98,7 +99,7 @@ namespace fitness_pro_software
                 double metric2_value = Convert.ToDouble(textBox2.Text);
                 double metric3_value = Convert.ToDouble(textBox3.Text);
                 double result = 0.0;
-                
+
 
                 if (this.activity_name == (string)walking_model.ActivityName)
                 {
@@ -133,7 +134,8 @@ namespace fitness_pro_software
                 int updated_result = previous_result + Convert.ToInt32(result);
                 int goal = ControllerDatabase.get_goal_from_db(this.userID);
 
-                if (updated_result >= goal ) {
+                if (updated_result >= goal)
+                {
                     ControllerDatabase.update_calorie_burned_in_db(this.userID, 0);
                     MessageBox.Show("You hit the goal\nYour progress have been resest");
                 }
@@ -141,36 +143,25 @@ namespace fitness_pro_software
                 {
                     ControllerDatabase.update_calorie_burned_in_db(this.userID, updated_result);
                 }
-               
+
 
                 MessageBox.Show($"You are doing {this.activity_name} and burn {result} calories"); // result will go to database
-                CloseForm1();
                 
-                Form1 main = new Form1(userID);
-                main.Show();
+             
+
+
                 Close();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message );
-                
+                MessageBox.Show(ex.Message);
+
             }
-            
+
         }
-        private void CloseForm1()
-        {
-            // Iterate through open forms and close the BackgroundForm
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is Form1)
-                {
-                    form.Close();
-                    break; // Exit the loop once you find and close the BackgroundForm
-                }
-            }
-        }
-            private void InputForm_Load(object sender, EventArgs e)
+
+        private void InputForm_Load(object sender, EventArgs e)
         {
 
         }

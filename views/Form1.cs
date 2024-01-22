@@ -2,19 +2,23 @@ using fitness_pro_software.controllers;
 using fitness_pro_software.models;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Threading;
+
 
 namespace fitness_pro_software
 {
     public partial class Form1 : Form
     {
         private int userID;
+
+
         public Form1(int userID)
         {
             InitializeComponent();
             this.userID = userID;
+
         }
 
-        // dashboard section //
         private void update_the_display()
         {
             string name = ControllerDatabase.get_user_name_from_db(this.userID);
@@ -24,8 +28,15 @@ namespace fitness_pro_software
 
             goal_output_lb.Text = Convert.ToString(goal);
             result_lb.Text = Convert.ToString(calorie_burned);
-            name_display.Text = name;
+
+
         }
+        private string update_panel(string goal)
+        {
+            goal_output_lb.Text = goal;
+            return "";
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             user_info_panel1.Visible = true;
@@ -33,7 +44,7 @@ namespace fitness_pro_software
             activity_panel_big1.SetUserID(this.userID);
 
             update_the_display();
-
+            user_info_panel1.changes(update_panel);
         }
 
 
@@ -66,13 +77,18 @@ namespace fitness_pro_software
         private void logout_pnl_Click(object sender, EventArgs e)
         {
             frmLogin logout = new frmLogin();
-            DialogResult result = MessageBox.Show("You are logging out","Confirmation",MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("You are logging out", "Confirmation", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
                 this.Hide();
                 logout.Show();
             }
-            
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -15,6 +15,8 @@ namespace fitness_pro_software
     public partial class activity_panel_big : UserControl
     {
         private int userID;
+
+
         public activity_panel_big()
         {
             InitializeComponent();
@@ -22,14 +24,13 @@ namespace fitness_pro_software
         public void SetUserID(int userID)
         {
             this.userID = userID;
-            
+
         }
 
         private void activity_panel_big_Load(object sender, EventArgs e)
         {
-    
-          
- 
+           
+
         }
 
         private void walking_btn_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace fitness_pro_software
             inputform.setuserID(this.userID);
             inputform.Show();
 
-            
+
         }
 
         private void running_btn_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace fitness_pro_software
             RunningModel running = new RunningModel();
             InputForm inputform = new InputForm(running.ActivityName);
             inputform.setuserID(this.userID);
+
             inputform.Show();
         }
 
@@ -76,13 +78,18 @@ namespace fitness_pro_software
         }
 
 
-       
+
         private void button7_Click(object sender, EventArgs e)
         {
             SwimmingModel swimming = new SwimmingModel();
             InputForm inputform = new InputForm(swimming.ActivityName);
             inputform.setuserID(this.userID);
             inputform.Show();
+        }
+
+        private void result_lb_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

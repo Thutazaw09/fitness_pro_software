@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace fitness_pro_software
             this.userID = userID;
             UpdateUserInformation();
         }
+
+        private Func<string, string> changes_to_main_panel; // store the function
+
+        public void changes(Func<string, string> changes_to_main_panel)
+        {
+            this.changes_to_main_panel = changes_to_main_panel;
+        }
+
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -159,6 +170,7 @@ namespace fitness_pro_software
             goal_input_field.Name = "goal_input_field";
             goal_input_field.Size = new Size(112, 30);
             goal_input_field.TabIndex = 12;
+            goal_input_field.TextChanged += goal_input_field_TextChanged;
             // 
             // label6
             // 
@@ -343,11 +355,11 @@ namespace fitness_pro_software
             calories_burned_disp.Text = Convert.ToString(calories_burned);
             height_input_field.Text = Convert.ToString(height);
 
-
         }
+
         private void user_info_panel_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void update_info_btn_Click(object sender, EventArgs e)
@@ -366,6 +378,7 @@ namespace fitness_pro_software
                 ControllerDatabase.update_height_in_db(this.userID, new_height);
                 ControllerDatabase.update_weight_in_db(this.userID, new_weight);
                 MessageBox.Show("Update Successful");
+
                 UpdateUserInformation();
 
 
@@ -385,7 +398,7 @@ namespace fitness_pro_software
                 MessageBox.Show("Your Result has been reset");
                 UpdateUserInformation();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -408,10 +421,11 @@ namespace fitness_pro_software
         {
             try
             {
-            int new_goal = Convert.ToInt32(goal_input_field.Text);
-            ControllerDatabase.update_goal_in_db(this.userID, new_goal);
-            MessageBox.Show("Goal has been set");
-            UpdateUserInformation();
+                int new_goal = Convert.ToInt32(goal_input_field.Text);
+                ControllerDatabase.update_goal_in_db(this.userID, new_goal);
+                MessageBox.Show("Goal has been set");
+                UpdateUserInformation();
+                changes_to_main_panel(goal_input_field.Text);
             }
             catch (Exception ex)
             {
@@ -420,5 +434,9 @@ namespace fitness_pro_software
 
         }
 
+        private void goal_input_field_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

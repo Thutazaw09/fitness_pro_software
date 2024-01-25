@@ -1,1 +1,3 @@
-# fitness_pro_software
+# Fitness TRACKER
+
+This software is created to record the fitness activity.

@@ -40,13 +40,15 @@
             // 
             // button1
             // 
-            button1.Location = new Point(137, 243);
+            button1.BackColor = Color.FromArgb(116, 86, 174);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(132, 232);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(131, 48);
             button1.TabIndex = 13;
             button1.Text = "Calculate";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += Button1_Click;
             // 
             // textBox3
             // 
@@ -73,6 +75,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F);
+            label3.ForeColor = Color.FromArgb(116, 86, 174);
             label3.Location = new Point(12, 178);
             label3.Name = "label3";
             label3.Size = new Size(70, 27);
@@ -83,6 +86,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F);
+            label2.ForeColor = Color.FromArgb(116, 86, 174);
             label2.Location = new Point(12, 125);
             label2.Name = "label2";
             label2.Size = new Size(70, 27);
@@ -93,6 +97,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 12F);
+            label1.ForeColor = Color.FromArgb(116, 86, 174);
             label1.Location = new Point(12, 72);
             label1.Name = "label1";
             label1.Size = new Size(70, 27);
@@ -102,10 +107,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(156, 15);
+            label4.Font = new Font("MS UI Gothic", 20F);
+            label4.ForeColor = Color.FromArgb(116, 86, 174);
+            label4.Location = new Point(141, 15);
             label4.Name = "label4";
-            label4.Size = new Size(90, 35);
+            label4.Size = new Size(112, 40);
             label4.TabIndex = 14;
             label4.Text = "label4";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -114,7 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.White;
             ClientSize = new Size(395, 292);
             Controls.Add(label4);
             Controls.Add(button1);
@@ -124,7 +130,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "InputForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InputForm";
             Load += InputForm_Load;
             ResumeLayout(false);

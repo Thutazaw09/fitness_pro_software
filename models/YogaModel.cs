@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fitness_pro_software.models
+﻿namespace fitness_pro_software.models
 {
     internal class YogaModel : ActivityModel
     {
-        public YogaModel() 
+        public YogaModel()
         {
             // defining the name of activity
             this.ActivityName = "Yoga";

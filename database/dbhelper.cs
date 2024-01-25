@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 
 
 public static class DBHelper
@@ -12,9 +10,9 @@ public static class DBHelper
         if (!File.Exists(@"..\..\..\database\fitness.db"))
         {
             SQLiteConnection.CreateFile(@"..\..\..\database\fitness.db");
-             
-            using (var db = new SQLiteConnection(constring)) 
-            {  
+
+            using (var db = new SQLiteConnection(constring))
+            {
                 db.Open();
 
                 string createUsersTable = @"CREATE TABLE IF NOT EXISTS UsersTable (
@@ -48,7 +46,7 @@ public static class DBHelper
         }
     }
 
-    public static SQLiteConnection GetConnection() 
+    public static SQLiteConnection GetConnection()
     {
         return new SQLiteConnection(constring);
     }

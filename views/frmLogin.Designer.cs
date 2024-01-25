@@ -1,6 +1,6 @@
 ﻿namespace fitness_pro_software
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -49,12 +49,12 @@
             to_register.BackColor = Color.Transparent;
             to_register.Font = new Font("Times New Roman", 8F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
             to_register.ForeColor = Color.FromArgb(116, 86, 174);
-            to_register.Location = new Point(121, 381);
+            to_register.Location = new Point(121, 387);
             to_register.Name = "to_register";
-            to_register.Size = new Size(75, 17);
+            to_register.Size = new Size(90, 19);
             to_register.TabIndex = 23;
             to_register.Text = "REGISTER";
-            to_register.Click += to_register_Click;
+            to_register.Click += To_register_Click;
             // 
             // exit_btn
             // 
@@ -66,7 +66,7 @@
             exit_btn.TabIndex = 22;
             exit_btn.Text = "EXIT";
             exit_btn.UseVisualStyleBackColor = false;
-            exit_btn.Click += exit_btn_Click;
+            exit_btn.Click += Exit_btn_Click;
             // 
             // login_btn
             // 
@@ -78,7 +78,7 @@
             login_btn.TabIndex = 21;
             login_btn.Text = "LOGIN";
             login_btn.UseVisualStyleBackColor = false;
-            login_btn.Click += login_btn_Click;
+            login_btn.Click += Login_btn_Click;
             // 
             // show_password_checkbox
             // 
@@ -87,17 +87,17 @@
             show_password_checkbox.Font = new Font("Times New Roman", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             show_password_checkbox.Location = new Point(142, 250);
             show_password_checkbox.Name = "show_password_checkbox";
-            show_password_checkbox.Size = new Size(118, 20);
+            show_password_checkbox.Size = new Size(129, 23);
             show_password_checkbox.TabIndex = 20;
             show_password_checkbox.Text = "Show Password";
             show_password_checkbox.UseVisualStyleBackColor = true;
-            show_password_checkbox.CheckedChanged += show_password_checkbox_CheckedChanged;
+            show_password_checkbox.CheckedChanged += Show_password_checkbox_CheckedChanged;
             // 
             // password_txt
             // 
             password_txt.Location = new Point(55, 214);
             password_txt.Name = "password_txt";
-            password_txt.Size = new Size(216, 27);
+            password_txt.Size = new Size(216, 30);
             password_txt.TabIndex = 17;
             // 
             // label4
@@ -106,7 +106,7 @@
             label4.Location = new Point(55, 191);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.Yes;
-            label4.Size = new Size(97, 19);
+            label4.Size = new Size(114, 22);
             label4.TabIndex = 16;
             label4.Text = "PASSWORD";
             // 
@@ -114,16 +114,16 @@
             // 
             user_name_txt.Location = new Point(55, 145);
             user_name_txt.Name = "user_name_txt";
-            user_name_txt.Size = new Size(216, 27);
+            user_name_txt.Size = new Size(216, 30);
             user_name_txt.TabIndex = 15;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(83, 362);
+            label3.Location = new Point(83, 366);
             label3.Name = "label3";
-            label3.Size = new Size(142, 16);
+            label3.Size = new Size(152, 19);
             label3.TabIndex = 14;
             label3.Text = "Do not have an account";
             // 
@@ -133,7 +133,7 @@
             label2.Location = new Point(55, 122);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(99, 19);
+            label2.Size = new Size(116, 22);
             label2.TabIndex = 13;
             label2.Text = "USERNAME";
             // 
@@ -144,27 +144,27 @@
             label1.ForeColor = Color.FromArgb(116, 86, 174);
             label1.Location = new Point(47, 58);
             label1.Name = "label1";
-            label1.Size = new Size(190, 34);
+            label1.Size = new Size(225, 40);
             label1.TabIndex = 12;
             label1.Text = "GET START";
             // 
             // timer1
             // 
             timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            timer1.Tick += Timer1_Tick;
             // 
             // countdown
             // 
             countdown.AutoSize = true;
-            countdown.Location = new Point(83, 23);
+            countdown.Location = new Point(111, 23);
             countdown.Name = "countdown";
-            countdown.Size = new Size(83, 19);
+            countdown.Size = new Size(96, 22);
             countdown.TabIndex = 24;
             countdown.Text = "countdown";
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(318, 430);
@@ -186,7 +186,7 @@
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLogin";
-            Load += frmLogin_Load;
+            Load += FrmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

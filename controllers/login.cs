@@ -1,8 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Data.SQLite;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Xml.Linq;
+﻿using System.Data.SQLite;
 
 public class LoginUser
 {

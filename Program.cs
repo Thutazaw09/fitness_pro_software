@@ -1,5 +1,3 @@
-using fitness_pro_software.models;
-
 namespace fitness_pro_software
 {
     internal static class Program
@@ -14,7 +12,7 @@ namespace fitness_pro_software
 
             ApplicationConfiguration.Initialize();
             DBHelper.InitializeDatabase();
-            Application.Run(new frmLogin());
+            Application.Run(new FrmLogin());
 
         }
     }

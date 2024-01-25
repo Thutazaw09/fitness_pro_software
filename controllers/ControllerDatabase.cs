@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+﻿using System.Data.SQLite;
 
 namespace fitness_pro_software.controllers
 {
     public static class ControllerDatabase
     {
-        public static string get_user_name_from_db(int userId)
+        public static string GetUserNameFromDb(int userId)
         {
             string result = "";
             string columnName = "Name";
@@ -22,7 +15,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -32,13 +25,14 @@ namespace fitness_pro_software.controllers
                         {
                             result = reader[columnName].ToString();
                         }
+
                     }
                 }
             }
 
             return result;
         }
-        public static void update_user_name_in_db(int userId, string newName)
+        public static void UpdateUserNameInDb(int userId, string newName)
         {
             string columnName = "Name";
 
@@ -48,7 +42,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWNAME WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWNAME", newName);
                     command.Parameters.AddWithValue("@USERID", userId);
@@ -58,7 +52,7 @@ namespace fitness_pro_software.controllers
             }
         }
 
-        public static int get_age_from_db(int userId)
+        public static int GetAgeFromDb(int userId)
         {
             int result = 0;
             string columnName = "Age";
@@ -69,7 +63,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -86,7 +80,7 @@ namespace fitness_pro_software.controllers
 
             return result;
         }
-        public static void update_age_in_db(int userId, int newAge)
+        public static void UpdateAgeInDb(int userId, int newAge)
         {
             string columnName = "Age";
 
@@ -96,7 +90,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWAGE WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWAGE", newAge);
                     command.Parameters.AddWithValue("@USERID", userId);
@@ -106,7 +100,7 @@ namespace fitness_pro_software.controllers
             }
         }
 
-        public static int get_goal_from_db(int userId)
+        public static int GetGoalFromDb(int userId)
         {
             int result = 0;
             string columnName = "Goals";
@@ -117,7 +111,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -134,7 +128,7 @@ namespace fitness_pro_software.controllers
 
             return result;
         }
-        public static void update_goal_in_db(int userId, int newGoal)
+        public static void UpdateGoalInDb(int userId, int newGoal)
         {
             string columnName = "Goals";
 
@@ -144,7 +138,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWGOAL WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWGOAL", newGoal);
                     command.Parameters.AddWithValue("@USERID", userId);
@@ -154,7 +148,7 @@ namespace fitness_pro_software.controllers
             }
         }
 
-        public static int get_calorie_burned_from_db(int userId)
+        public static int GetCalorieBurnedFromDb(int userId)
         {
             int result = 0;
             string columnName = "Calories_Burn";
@@ -165,7 +159,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -182,7 +176,7 @@ namespace fitness_pro_software.controllers
 
             return result;
         }
-        public static void update_calorie_burned_in_db(int userId, int newCaloriesBurned)
+        public static void UpdateCalorieBurnedInDb(int userId, int newCaloriesBurned)
         {
             string columnName = "Calories_Burn";
 
@@ -192,7 +186,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWCALORIESBURNED WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWCALORIESBURNED", newCaloriesBurned);
                     command.Parameters.AddWithValue("@USERID", userId);
@@ -202,7 +196,7 @@ namespace fitness_pro_software.controllers
             }
         }
 
-        public static double get_weight_from_db(int userId)
+        public static double GetWeightFromDb(int userId)
         {
             double result = 0.0;
             string columnName = "Weight";
@@ -213,7 +207,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -230,7 +224,7 @@ namespace fitness_pro_software.controllers
 
             return result;
         }
-        public static void update_weight_in_db(int userId, double newWeight)
+        public static void UpdateWeightInDb(int userId, double newWeight)
         {
             string columnName = "Weight";
 
@@ -240,7 +234,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWWIDTH WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWWIDTH", newWeight);
                     command.Parameters.AddWithValue("@USERID", userId);
@@ -250,7 +244,7 @@ namespace fitness_pro_software.controllers
             }
         }
 
-        public static double get_height_from_db(int userId)
+        public static double GetHeightFromDb(int userId)
         {
             double result = 0.0;
             string columnName = "Height";
@@ -261,7 +255,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"SELECT {columnName} FROM UsersDataTable WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@USERID", userId);
 
@@ -278,7 +272,7 @@ namespace fitness_pro_software.controllers
 
             return result;
         }
-        public static void update_height_in_db(int userId, double newHeight)
+        public static void UpdateHeightInDb(int userId, double newHeight)
         {
             string columnName = "Height";
 
@@ -288,7 +282,7 @@ namespace fitness_pro_software.controllers
 
                 string query = $"UPDATE UsersDataTable SET {columnName} = @NEWHEIGHT WHERE UserId = @USERID";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (SQLiteCommand command = new(query, connection))
                 {
                     command.Parameters.AddWithValue("@NEWHEIGHT", newHeight);
                     command.Parameters.AddWithValue("@USERID", userId);

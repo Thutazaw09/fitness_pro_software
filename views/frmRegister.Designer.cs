@@ -125,7 +125,7 @@
             show_password_checkbox.TabIndex = 8;
             show_password_checkbox.Text = "Show Password";
             show_password_checkbox.UseVisualStyleBackColor = true;
-            show_password_checkbox.CheckedChanged += show_password_checkbox_CheckedChanged;
+            show_password_checkbox.CheckedChanged += Show_password_checkbox_CheckedChanged;
             // 
             // register_btn
             // 
@@ -137,7 +137,7 @@
             register_btn.TabIndex = 9;
             register_btn.Text = "REGISTER";
             register_btn.UseVisualStyleBackColor = false;
-            register_btn.Click += register_btn_Click;
+            register_btn.Click += Register_btn_Click;
             // 
             // exit_btn
             // 
@@ -149,7 +149,7 @@
             exit_btn.TabIndex = 10;
             exit_btn.Text = "EXIT";
             exit_btn.UseVisualStyleBackColor = false;
-            exit_btn.Click += exit_btn_Click;
+            exit_btn.Click += Exit_btn_Click;
             // 
             // to_login
             // 
@@ -162,7 +162,7 @@
             to_login.Size = new Size(61, 19);
             to_login.TabIndex = 11;
             to_login.Text = "LOGIN";
-            to_login.Click += to_login_Click;
+            to_login.Click += To_login_Click;
             // 
             // frmRegister
             // 
@@ -189,7 +189,7 @@
             Name = "frmRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += frmRegister_Load;
+            Load += FrmRegister_Load;
             ResumeLayout(false);
             PerformLayout();
         }

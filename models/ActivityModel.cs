@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fitness_pro_software.models
+﻿namespace fitness_pro_software.models
 {
     internal abstract class ActivityModel
     {
         // getters and setters 
         // Name of the activity
-        public string ActivityName { get; set; }
+        public string ActivityName { get; set; } = "";
 
         // Name of the metrics
-        public  string Metric1Name { get; set; }
-        public  string Metric2Name { get; set; }
-        public  string Metric3Name { get; set; }
+        public string Metric1Name { get; set; } = "";
+        public string Metric2Name { get; set; } = "";
+        public string Metric3Name { get; set; } = "";
 
         // Value of the Metrics
         public double Metric1Value { get; set; }

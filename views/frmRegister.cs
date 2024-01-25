@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace fitness_pro_software
+﻿namespace fitness_pro_software
 {
     public partial class frmRegister : Form
     {
@@ -17,7 +7,7 @@ namespace fitness_pro_software
             InitializeComponent();
         }
 
-        private void frmRegister_Load(object sender, EventArgs e)
+        private void FrmRegister_Load(object sender, EventArgs e)
         {
             if (show_password_checkbox.Checked)
             {
@@ -31,19 +21,19 @@ namespace fitness_pro_software
             }
         }
 
-        private void exit_btn_Click(object sender, EventArgs e)
+        private void Exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void to_login_Click(object sender, EventArgs e)
+        private void To_login_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmLogin login = new frmLogin();
+            FrmLogin login = new();
             login.Show();
         }
 
-        private void show_password_checkbox_CheckedChanged(object sender, EventArgs e)
+        private void Show_password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (show_password_checkbox.Checked)
             {
@@ -57,14 +47,14 @@ namespace fitness_pro_software
             }
         }
 
-        private void register_btn_Click(object sender, EventArgs e)
+        private void Register_btn_Click(object sender, EventArgs e)
         {
             string username = user_name_txt.Text;
             string password = password_txt.Text;
 
             LoginUser.RegisterUser(username, password);
 
-            MessageBox.Show("User registered successfully.");
+            MessageBox.Show("User registered successfully.", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             user_name_txt.Clear();
             password_txt.Clear();

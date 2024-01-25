@@ -1,18 +1,17 @@
-﻿using System.Threading;
-
-namespace fitness_pro_software
+﻿namespace fitness_pro_software
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         private int loginAttempts = 0;
         private const int maxLoginAttempts = 5;
         private DateTime lockoutEndTime;
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
+            countdown.Visible = false;
             if (!show_password_checkbox.Checked)
             {
                 password_txt.UseSystemPasswordChar = true;
@@ -22,18 +21,18 @@ namespace fitness_pro_software
                 password_txt.UseSystemPasswordChar = false;
             }
         }
-        private void exit_btn_Click(object sender, EventArgs e)
+        private void Exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void to_register_Click(object sender, EventArgs e)
+        private void To_register_Click(object sender, EventArgs e)
         {
-            frmRegister register = new frmRegister();
+            frmRegister register = new();
             register.Show();
             Visible = false;
         }
-        private void show_password_checkbox_CheckedChanged(object sender, EventArgs e)
+        private void Show_password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             if (!show_password_checkbox.Checked)
             {
@@ -45,11 +44,11 @@ namespace fitness_pro_software
             }
         }
 
-        private void login_btn_Click(object sender, EventArgs e)
+        private void Login_btn_Click(object sender, EventArgs e)
         {
             if (DateTime.Now < lockoutEndTime)
             {
-                MessageBox.Show($"Login attempts exceeded. Please wait for the lockout period to end.");
+                MessageBox.Show($"Login attempts exceeded. Please wait for the lockout period to end.", "LOGIN FAIL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string username = user_name_txt.Text;
@@ -62,8 +61,8 @@ namespace fitness_pro_software
                 int userID = LoginUser.GetUserID(username, password);
                 if (userID != -1)
                 {
-                    MessageBox.Show("Login successful!");
-                    Form1 login = new Form1(userID);
+                    MessageBox.Show("Login successful!", "WELCOME", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HomePanel login = new(userID);
                     login.Show();
                     this.Hide();
                 }
@@ -74,30 +73,29 @@ namespace fitness_pro_software
                 if (loginAttempts >= maxLoginAttempts)
                 {
                     lockoutEndTime = DateTime.Now.AddMinutes(1);
-                    MessageBox.Show($"Too many unsuccessful login attempts. Your account is locked for 1 minute..");
+                    MessageBox.Show($"Too many unsuccessful login attempts. Your account is locked for 1 minute..", "lOGIN FAIL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     loginAttempts = 2;
                     timer1.Start();
+
+                    countdown.Text = timer1.ToString();
+                    countdown.Visible = true;
+
 
                 }
                 else
                 {
-                    MessageBox.Show($"Invalid username or password. Attempts left: {maxLoginAttempts - loginAttempts}");
+                    MessageBox.Show($"Invalid username or password. Attempts left: {maxLoginAttempts - loginAttempts}", "lOGIN FAIL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    countdown.Visible = false;
                 }
 
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if (DateTime.Now >= lockoutEndTime)
             {
                 timer1.Stop();
-                MessageBox.Show("Lockout period ended. You can attempt to login again.");
+                MessageBox.Show("Lockout period ended. You can attempt to login again.", "ALART", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

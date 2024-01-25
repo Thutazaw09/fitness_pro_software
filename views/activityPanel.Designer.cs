@@ -1,6 +1,6 @@
 ﻿namespace fitness_pro_software
 {
-    partial class activity_panel_big
+    partial class activityPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(activity_panel_big));
-            label1 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(activityPanel));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -43,19 +42,9 @@
             cycling_btn = new Button();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Bisque;
-            label1.Location = new Point(424, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(178, 34);
-            label1.TabIndex = 0;
-            label1.Text = "ACTIVITIES";
-            // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(107, 106);
             button1.Name = "button1";
             button1.Size = new Size(0, 0);
@@ -65,7 +54,8 @@
             // 
             // button2
             // 
-            button2.Location = new Point(435, 106);
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(476, 58);
             button2.Name = "button2";
             button2.Size = new Size(0, 0);
             button2.TabIndex = 2;
@@ -74,6 +64,7 @@
             // 
             // button3
             // 
+            button3.Cursor = Cursors.Hand;
             button3.Location = new Point(725, 106);
             button3.Name = "button3";
             button3.Size = new Size(0, 0);
@@ -83,7 +74,8 @@
             // 
             // button4
             // 
-            button4.Location = new Point(725, 343);
+            button4.Cursor = Cursors.Hand;
+            button4.Location = new Point(733, 343);
             button4.Name = "button4";
             button4.Size = new Size(0, 0);
             button4.TabIndex = 4;
@@ -92,19 +84,20 @@
             // 
             // yoga_btn
             // 
+            yoga_btn.Cursor = Cursors.Hand;
             yoga_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             yoga_btn.Image = (Image)resources.GetObject("yoga_btn.Image");
-            yoga_btn.Location = new Point(136, 332);
+            yoga_btn.Location = new Point(144, 284);
             yoga_btn.Name = "yoga_btn";
             yoga_btn.Size = new Size(180, 180);
             yoga_btn.TabIndex = 5;
-            yoga_btn.Text = "Yoga";
             yoga_btn.UseVisualStyleBackColor = true;
-            yoga_btn.Click += yoga_btn_Click;
+            yoga_btn.Click += Yoga_btn_Click;
             // 
             // button6
             // 
-            button6.Location = new Point(435, 343);
+            button6.Cursor = Cursors.Hand;
+            button6.Location = new Point(484, 295);
             button6.Name = "button6";
             button6.Size = new Size(0, 0);
             button6.TabIndex = 6;
@@ -113,69 +106,69 @@
             // 
             // swimming_btn
             // 
+            swimming_btn.Cursor = Cursors.Hand;
             swimming_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             swimming_btn.Image = (Image)resources.GetObject("swimming_btn.Image");
-            swimming_btn.Location = new Point(710, 109);
+            swimming_btn.Location = new Point(784, 61);
             swimming_btn.Name = "swimming_btn";
             swimming_btn.Size = new Size(180, 180);
             swimming_btn.TabIndex = 7;
-            swimming_btn.Text = "Swimming";
             swimming_btn.UseVisualStyleBackColor = true;
-            swimming_btn.Click += button7_Click;
+            swimming_btn.Click += Button7_Click;
             // 
             // walking_btn
             // 
+            walking_btn.Cursor = Cursors.Hand;
             walking_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             walking_btn.Image = (Image)resources.GetObject("walking_btn.Image");
-            walking_btn.Location = new Point(136, 109);
+            walking_btn.Location = new Point(144, 61);
             walking_btn.Name = "walking_btn";
             walking_btn.Size = new Size(180, 180);
             walking_btn.TabIndex = 8;
-            walking_btn.Text = "Walking";
             walking_btn.UseVisualStyleBackColor = true;
-            walking_btn.Click += walking_btn_Click;
+            walking_btn.Click += Walking_btn_Click;
             // 
             // running_btn
             // 
+            running_btn.Cursor = Cursors.Hand;
             running_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             running_btn.Image = (Image)resources.GetObject("running_btn.Image");
-            running_btn.Location = new Point(423, 109);
+            running_btn.Location = new Point(464, 61);
             running_btn.Name = "running_btn";
             running_btn.Size = new Size(180, 180);
             running_btn.TabIndex = 9;
-            running_btn.Text = "Running";
             running_btn.UseVisualStyleBackColor = true;
-            running_btn.Click += running_btn_Click;
+            running_btn.Click += Running_btn_Click;
             // 
             // dancing_btn
             // 
+            dancing_btn.Cursor = Cursors.Hand;
             dancing_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dancing_btn.Image = (Image)resources.GetObject("dancing_btn.Image");
-            dancing_btn.Location = new Point(423, 332);
+            dancing_btn.Location = new Point(464, 284);
             dancing_btn.Name = "dancing_btn";
             dancing_btn.Size = new Size(180, 180);
             dancing_btn.TabIndex = 10;
-            dancing_btn.Text = "Dancing";
             dancing_btn.UseVisualStyleBackColor = true;
-            dancing_btn.Click += dancing_btn_Click;
+            dancing_btn.Click += Dancing_btn_Click;
             // 
             // cycling_btn
             // 
+            cycling_btn.Cursor = Cursors.Hand;
             cycling_btn.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cycling_btn.Image = (Image)resources.GetObject("cycling_btn.Image");
-            cycling_btn.Location = new Point(710, 332);
+            cycling_btn.Location = new Point(784, 295);
             cycling_btn.Name = "cycling_btn";
             cycling_btn.Size = new Size(180, 180);
             cycling_btn.TabIndex = 11;
-            cycling_btn.Text = "Cycling";
             cycling_btn.UseVisualStyleBackColor = true;
-            cycling_btn.Click += cycling_btn_Click;
+            cycling_btn.Click += Cycling_btn_Click;
             // 
-            // activity_panel_big
+            // activityPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = Color.White;
             Controls.Add(cycling_btn);
             Controls.Add(dancing_btn);
             Controls.Add(running_btn);
@@ -187,18 +180,14 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label1);
             ForeColor = Color.RosyBrown;
-            Name = "activity_panel_big";
-            Size = new Size(1026, 579);
-            Load += activity_panel_big_Load;
+            Name = "activityPanel";
+            Size = new Size(1108, 523);
+            Load += Activity_panel_big_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Button button1;
         private Button button2;
         private Button button3;

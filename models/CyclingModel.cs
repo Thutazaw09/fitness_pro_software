@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fitness_pro_software.models
+﻿namespace fitness_pro_software.models
 {
     internal class CyclingModel : ActivityModel
     {
-        public CyclingModel() 
+        public CyclingModel()
         {
             // defining the name of activity
             this.ActivityName = "Cycling";

@@ -1,40 +1,25 @@
 ﻿using fitness_pro_software.controllers;
 using fitness_pro_software.models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace fitness_pro_software
 {
     public partial class InputForm : Form
     {
-        WalkingModel walking_model = new WalkingModel();
-        DancingModel dancing_model = new DancingModel();
-        SwimmingModel swimming_model = new SwimmingModel();
-        CyclingModel cycling_model = new CyclingModel();
-        YogaModel yoga_model = new YogaModel();
-        RunningModel running_model = new RunningModel();
+        readonly WalkingModel walking_model = new();
+        readonly DancingModel dancing_model = new();
+        readonly SwimmingModel swimming_model = new();
+        readonly CyclingModel cycling_model = new();
+        readonly YogaModel yoga_model = new();
+        readonly RunningModel running_model = new();
+
         public string activity_name;
         private int userID;
-        public void setuserID(int userID)
+        public void SetuserID(int userID)
         {
             this.userID = userID;
         }
-
-        public InputForm(string activity_name)
+        private void UpdateDisplay()
         {
-            this.activity_name = activity_name;
-
-            InitializeComponent();
-
-
             if (activity_name == (string)walking_model.ActivityName)
             {
                 label1.Text = walking_model.Metric1Name;
@@ -88,10 +73,17 @@ namespace fitness_pro_software
             }
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        public InputForm(string activity_name)
         {
-            // coming from input
+            this.activity_name = activity_name;
+
+            InitializeComponent();
+            UpdateDisplay();
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
 
             try
             {
@@ -130,24 +122,24 @@ namespace fitness_pro_software
                     result = 0.0;
                 }
 
-                int previous_result = ControllerDatabase.get_calorie_burned_from_db(this.userID);
+                int previous_result = ControllerDatabase.GetCalorieBurnedFromDb(this.userID);
                 int updated_result = previous_result + Convert.ToInt32(result);
-                int goal = ControllerDatabase.get_goal_from_db(this.userID);
+                int goal = ControllerDatabase.GetGoalFromDb(this.userID);
 
                 if (updated_result >= goal)
                 {
-                    ControllerDatabase.update_calorie_burned_in_db(this.userID, 0);
-                    MessageBox.Show("You hit the goal\nYour progress have been resest");
+                    ControllerDatabase.UpdateCalorieBurnedInDb(this.userID, 0);
+                    MessageBox.Show("You hit the goal\nYour progress have been resest", "CONGRATULATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ControllerDatabase.update_calorie_burned_in_db(this.userID, updated_result);
+                    ControllerDatabase.UpdateCalorieBurnedInDb(this.userID, updated_result);
                 }
 
 
-                MessageBox.Show($"You are doing {this.activity_name} and burn {result} calories"); // result will go to database
-                
-             
+                MessageBox.Show($"You are doing {this.activity_name} and burn {result} calories", "CONGRATULATION", MessageBoxButtons.OK, MessageBoxIcon.Information); // result will go to database
+
+
 
 
                 Close();
@@ -155,7 +147,7 @@ namespace fitness_pro_software
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

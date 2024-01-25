@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace fitness_pro_software.models
+﻿namespace fitness_pro_software.models
 {
     internal class WalkingModel : ActivityModel
     {
-        public WalkingModel() 
+        public WalkingModel()
         {
             // defining the name of activity
             this.ActivityName = "Walking";
@@ -20,7 +14,7 @@ namespace fitness_pro_software.models
 
             // metrics values will be defined through controllers
         }
-     
+
     }
-   
+
 }

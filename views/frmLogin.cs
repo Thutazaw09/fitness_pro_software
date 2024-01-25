@@ -1,4 +1,6 @@
-﻿namespace fitness_pro_software
+﻿using fitness_pro_software.controllers;
+
+namespace fitness_pro_software
 {
     public partial class FrmLogin : Form
     {

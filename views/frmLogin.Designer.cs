@@ -142,11 +142,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("MS UI Gothic", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(116, 86, 174);
-            label1.Location = new Point(47, 58);
+            label1.Location = new Point(94, 58);
             label1.Name = "label1";
-            label1.Size = new Size(225, 40);
+            label1.Size = new Size(130, 40);
             label1.TabIndex = 12;
-            label1.Text = "GET START";
+            label1.Text = "LOGIN";
             // 
             // timer1
             // 
@@ -162,7 +162,7 @@
             countdown.TabIndex = 24;
             countdown.Text = "countdown";
             // 
-            // frmLogin
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -183,7 +183,7 @@
             ForeColor = Color.FromArgb(164, 165, 169);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmLogin";
+            Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLogin";
             Load += FrmLogin_Load;

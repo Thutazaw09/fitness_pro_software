@@ -47,11 +47,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("MS UI Gothic", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(116, 86, 174);
-            label1.Location = new Point(30, 48);
+            label1.Location = new Point(43, 48);
             label1.Name = "label1";
-            label1.Size = new Size(225, 40);
+            label1.Size = new Size(198, 40);
             label1.TabIndex = 0;
-            label1.Text = "GET START";
+            label1.Text = "REGISTER";
             // 
             // label2
             // 

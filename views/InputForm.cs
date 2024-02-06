@@ -5,18 +5,19 @@ namespace fitness_pro_software
 {
     public partial class InputForm : Form
     {
-        readonly WalkingModel walking_model = new();
-        readonly DancingModel dancing_model = new();
-        readonly SwimmingModel swimming_model = new();
-        readonly CyclingModel cycling_model = new();
-        readonly YogaModel yoga_model = new();
-        readonly RunningModel running_model = new();
+        WalkingModel walking_model = new();
+        DancingModel dancing_model = new();
+        SwimmingModel swimming_model = new();
+        CyclingModel cycling_model = new();
+        YogaModel yoga_model = new();
+        RunningModel running_model = new();
 
         public string activity_name;
         private int userID;
         public void SetuserID(int userID)
         {
             this.userID = userID;
+         
         }
         private void UpdateDisplay()
         {
@@ -95,27 +96,51 @@ namespace fitness_pro_software
 
                 if (this.activity_name == (string)walking_model.ActivityName)
                 {
-                    result = ControllerModel.WalkingBurn(metric1_value, metric2_value, metric3_value);
+                    walking_model.UserID = userID;
+                    walking_model.Metric1Value = metric1_value;
+                    walking_model.Metric2Value = metric2_value;
+                    walking_model.Metric3Value = metric3_value;
+                    result = walking_model.BurnCalorie();
                 }
                 else if (this.activity_name == (string)running_model.ActivityName)
                 {
-                    result = ControllerModel.RunningBurn(metric1_value, metric2_value, metric3_value);
+                    running_model.UserID = userID;
+                    running_model.Metric1Value = metric1_value;
+                    running_model.Metric2Value = metric2_value;
+                    running_model.Metric3Value = metric3_value;
+                    result = running_model.BurnCalorie();
                 }
                 else if (this.activity_name == (string)swimming_model.ActivityName)
                 {
-                    result = ControllerModel.SwimmingBurn(metric1_value, metric2_value, metric3_value);
+                    swimming_model.UserID = userID;
+                    swimming_model.Metric1Value = metric1_value;
+                    swimming_model.Metric2Value = metric2_value;
+                    swimming_model.Metric3Value = metric3_value;
+                    result = swimming_model.BurnCalorie();
                 }
                 else if (this.activity_name == (string)dancing_model.ActivityName)
                 {
-                    result = ControllerModel.DancingBurn(metric1_value, metric2_value, metric3_value);
+                    dancing_model.UserID = userID;
+                    dancing_model.Metric1Value = metric1_value;
+                    dancing_model.Metric2Value = metric2_value;
+                    dancing_model.Metric3Value = metric3_value;
+                    result = dancing_model.BurnCalorie();
                 }
                 else if (this.activity_name == (string)yoga_model.ActivityName)
                 {
-                    result = ControllerModel.YogaBurn(metric1_value, metric2_value, metric3_value);
+                    yoga_model.UserID = userID;
+                    yoga_model.Metric1Value = metric1_value;
+                    yoga_model.Metric2Value = metric2_value;
+                    yoga_model.Metric3Value = metric3_value;
+                    result = yoga_model.BurnCalorie();
                 }
                 else if (this.activity_name == (string)cycling_model.ActivityName)
                 {
-                    result = ControllerModel.CyclingBurn(metric1_value, metric2_value, metric3_value);
+                    cycling_model.UserID = userID;
+                    cycling_model.Metric1Value = metric1_value;
+                    cycling_model.Metric2Value = metric2_value;
+                    cycling_model.Metric3Value = metric3_value;
+                    result = cycling_model.BurnCalorie();
                 }
                 else
                 {
